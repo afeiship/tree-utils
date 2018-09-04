@@ -1,0 +1,47 @@
+{
+  "random" : false,
+  "authPass" : null,
+  "useOnlinePac" : false,
+  "TTL" : 0,
+  "global" : false,
+  "reconnectTimes" : 3,
+  "index" : 0,
+  "proxyType" : 0,
+  "proxyHost" : null,
+  "authUser" : null,
+  "proxyAuthPass" : null,
+  "isDefault" : false,
+  "pacUrl" : null,
+  "configs" : [
+    {
+      "enable" : true,
+      "password" : "isx.yt-76017354",
+      "method" : "aes-256-cfb",
+      "remarks" : "free-ss.site",
+      "server" : "107.170.208.138",
+      "obfs" : "plain",
+      "protocol" : "origin",
+      "server_port" : 17227,
+      "remarks_base64" : "ZnJlZS1zcy5zaXRl"
+    },
+    {
+      "enable" : true,
+      "password" : "ss8.pm-25031802",
+      "method" : "aes-256-cfb",
+      "remarks" : "",
+      "server" : "206.189.153.214",
+      "obfs" : "plain",
+      "protocol" : "origin",
+      "server_port" : 12079,
+      "remarks_base64" : ""
+    }
+  ],
+  "proxyPort" : 0,
+  "randomAlgorithm" : 0,
+  "proxyEnable" : false,
+  "enabled" : true,
+  "autoban" : false,
+  "proxyAuthUser" : null,
+  "shareOverLan" : false,
+  "localPort" : 1080
+}
