@@ -5,7 +5,7 @@ services:
     ports:
       - "8388:8388"
     volumes:
-      - ./config/shadowsokets.json:/etc/shadowsocks.json:rw
+      - ./config/shadowsocks.json:/etc/shadowsocks.json:rw
     command: -c /etc/shadowsocks.json
     environment: 
       - SERVER_ADDR=0.0.0.0
