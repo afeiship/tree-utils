@@ -1,0 +1,15 @@
+version: '2'
+services:
+  aws_shadowsocks:
+    image: 'afeiship/docker-shadowsocks'
+    ports:
+      - "8388:8388"
+    container_name: shadowsocks-libev-server
+    volumes:
+      - $PWD/config/shadowsocks.json:/etc/shadowsocks.json:rw
+    command: -c /etc/shadowsocks.json
+    environment: 
+      - SERVER_ADDR=0.0.0.0
+      - METHOD=aes-256-cfb
+      - TIMEOUT=300
+      - FAST_OPEN_ENABLE="true"
