@@ -4,12 +4,11 @@ services:
     image: 'bingoku/shadowsocks'
     ports:
       - "8388:8388"
-    container_name: shadowsocks-libev-server
     volumes:
-      - ./config/shadowsocks.json:/etc/shadowsocks.json:rw
+      - ./config/shadowsokets.json:/etc/shadowsocks.json:rw
     command: -c /etc/shadowsocks.json
     environment: 
       - SERVER_ADDR=0.0.0.0
       - METHOD=aes-256-cfb
-      - TIMEOUT=300
+      - TIMEOUT=600
       - FAST_OPEN_ENABLE="true"
