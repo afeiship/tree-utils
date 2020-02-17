@@ -1,7 +1,7 @@
 # docker-shadowsocks
 > Docker for shadowsocks.
 
-## get-start:
+## get-start
 ```shell
 cd ~
 mkdir github
@@ -18,6 +18,11 @@ sudo docker images
 sudo docker-compose down 
 sudo docker-compose up -d
 sudo docker-compose down && docker-compose up -d
+```
+
+## check if started
+```shell
+sudo lsof -i -P -n | grep 8388
 ```
 
 ## free-shadowsocks:
