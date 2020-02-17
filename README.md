@@ -9,6 +9,15 @@ cd github
 git clone https://github.com/afeiship/docker-shadowsocks.git
 cd docker-shadowsocks
 docker-compose up -d
+
+# 如果无效：
+sudo docker-compose up -d
+```
+
+## meet ubuntu
+```shell
+sudo snap install docker
+sudo snap start docker
 ```
 
 ## up/down/rmi
