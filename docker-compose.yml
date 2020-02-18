@@ -3,7 +3,7 @@ services:
   aws_shadowsocks:
     image: 'bingoku/shadowsocks'
     ports:
-      - "8388:8922"
+      - "8388:8388"
     volumes:
       - ./config/shadowsocks.json:/etc/shadowsocks.json:rw
     command: -c /etc/shadowsocks.json
