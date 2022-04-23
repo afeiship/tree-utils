@@ -1,0 +1,13 @@
+{
+  "name": "docker-shadowsocks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Docker for shadowsocks.",
+  "scripts": {
+    "start": "docker-compose up",
+    "start-d": "docker-compose up -d",
+    "stop": "docker-compose down",
+    "restart": "docker-compose restart"
+  },
+  "author": "afeiship"
+}
