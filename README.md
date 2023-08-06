@@ -13,9 +13,7 @@ npm install @jswork/tree-utils
 
 ## usage
 ```js
-import treeUtils from '@jswork/tree-utils';
-
-// usage goes here.
+import { findParent } from '@jswork/tree-utils';
 ```
 
 ## license
