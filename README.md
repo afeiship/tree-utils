@@ -1,38 +1,34 @@
-# docker-shadowsocks
-> Docker for shadowsocks.
+# tree-utils
+> Tree Utils is the library to convert and manipulate with tree-like structures.
 
-## get-start
+[![version][version-image]][version-url]
+[![license][license-image]][license-url]
+[![size][size-image]][size-url]
+[![download][download-image]][download-url]
+
+## installation
 ```shell
-cd ~
-mkdir github
-cd github
-git clone https://github.com/afeiship/docker-shadowsocks.git
-cd docker-shadowsocks
-docker-compose up -d
-
-# 如果无效：
-sudo docker-compose up -d
+npm install @jswork/tree-utils
 ```
 
-## meet ubuntu
-```shell
-sudo snap install docker
-sudo snap start docker
+## usage
+```js
+import treeUtils from '@jswork/tree-utils';
+
+// usage goes here.
 ```
 
-## up/down/rmi
-```shell
-sudo docker ps
-sudo docker images
-sudo docker-compose down 
-sudo docker-compose up -d
-sudo docker-compose down && docker-compose up -d
-```
+## license
+Code released under [the MIT license](https://github.com/afeiship/tree-utils/blob/master/LICENSE.txt).
 
-## check if started
-```shell
-sudo lsof -i -P -n | grep 8388
-```
+[version-image]: https://img.shields.io/npm/v/@jswork/tree-utils
+[version-url]: https://npmjs.org/package/@jswork/tree-utils
 
-## free-shadowsocks:
-+ https://free-ss.site/
+[license-image]: https://img.shields.io/npm/l/@jswork/tree-utils
+[license-url]: https://github.com/afeiship/tree-utils/blob/master/LICENSE.txt
+
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/tree-utils
+[size-url]: https://github.com/afeiship/tree-utils/blob/master/dist/tree-utils.min.js
+
+[download-image]: https://img.shields.io/npm/dm/@jswork/tree-utils
+[download-url]: https://www.npmjs.com/package/@jswork/tree-utils

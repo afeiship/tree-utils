@@ -1,9 +1,0 @@
-{
-    "server": "0.0.0.0",
-    "server_port": 443,
-    "password": "~123456!",
-    "timeout": 300,
-    "method": "aes-256-cfb",
-    "fast_open": true,
-    "mode": "tcp_and_udp"
-}

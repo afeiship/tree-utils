@@ -1,1 +1,14 @@
-data
+node_modules
+bower_components
+coverage
+npm-debug.log
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+.DS_Store
+.idea
+.vscode
+dist
+
+.tmp
+docs
