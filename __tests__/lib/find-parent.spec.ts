@@ -3,15 +3,15 @@ import { findParent } from '../../src/lib/find-parent';
 describe('api.basic', () => {
   test('target is root', () => {
     const tree = {
-      key: 'root',
+      value: 'root',
       label: 'root',
       children: [
         {
-          key: 'child1',
+          value: 'child1',
           label: 'child1',
         },
         {
-          key: 'child2',
+          value: 'child2',
           label: 'child2',
         },
       ],
@@ -22,15 +22,15 @@ describe('api.basic', () => {
 
   test('target is child', () => {
     const tree = {
-      key: 'root',
+      value: 'root',
       label: 'root',
       children: [
         {
-          key: 'child1',
+          value: 'child1',
           label: 'child1',
         },
         {
-          key: 'child2',
+          value: 'child2',
           label: 'child2',
         },
       ],
