@@ -7,6 +7,7 @@ interface TreeItem {
   children: TreeItem[];
   leaf: boolean;
   depth: number;
+  [key: string]: any;
 }
 
 interface Options {

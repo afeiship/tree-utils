@@ -3,6 +3,8 @@ interface Tree {
   label: string;
   leaf?: boolean;
   children?: Tree[];
+  depth?: number;
+  [key: string]: any;
 }
 
 export const findParent = (inTree: Tree, inKey: string, inParent?: Tree): Tree | null => {
