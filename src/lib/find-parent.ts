@@ -10,12 +10,17 @@ const defaults: Options = {
 
 export const findParent = (inTree: any, inId: string, inOptions?: Options) => {
   const options = { ...defaults, ...inOptions };
-  const tree = Array.isArray(inTree) ? { [options.children]: inTree } : inTree;
-  if (inTree[options.value] === inId) return null;
-  for (const child of inTree[options.children]) {
-    if (child[options.value] === inId) return inTree;
-    const parent = findParent(child, inId, options);
-    if (parent) return parent;
-  }
-  return null;
+  const { value, children } = options;
+  if (inTree[value] === inId) return null;
+  const find = (tree: any, id: string) => {
+    if (tree[children]) {
+      for (const child of tree[children]) {
+        if (child[value] === id) return tree;
+        const res = find(child, id);
+        if (res) return res;
+      }
+    }
+    return null;
+  };
+  return find(inTree, inId);
 };

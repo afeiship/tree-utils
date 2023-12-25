@@ -1,35 +1,31 @@
+import { findParent } from './find-parent';
+
 interface Options {
   value: string;
   children: string;
-};
+}
 
 const defaults: Options = {
   value: 'value',
   children: 'children',
 };
 
-export const findParents(inTree: any[], inId: any, inOptions?: Options): any[] => {
-  const parents: any[] = [];
-  const opts = { ...defaults, ...inOptions };
+export const findParents = (inTree: any, inId: any, inOptions?: Options): any[] => {
+  const result: any[] = [];
+  const options = { ...defaults, ...inOptions };
+  const { value, children } = options;
+
   const find = (tree: any, id: any) => {
-    if (tree[opts.value] === id) {
-      parents.push(tree);
-      return true;
-    }
+    const parent = findParent(inTree, inId, options);
+    console.log('parent: ', parent);
+    if (!parent) return;
+    result.push(parent);
 
-    if (tree[opts.children]) {
-      for (const child of tree[opts.children]) {
-        if (find(child, id)) {
-          parents.push(tree);
-          return true;
-        }
-      }
-    }
-    return false;
-  }
+    console.log('nested: ', parent, parent[value]);
+    find(parent, parent[value]);
+  };
 
-  if (find(inTree, inId)) {
-    return parents;
-  }
-  return [];
-}
+  find(inTree, inId);
+
+  return result;
+};

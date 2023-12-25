@@ -1,8 +1,6 @@
 import { buildTree } from './lib/build-tree';
 import { findParent } from './lib/find-parent';
-imort { findParents } from './lib/find-parents';
-
-
+import { findParents } from './lib/find-parents';
 
 declare var wx: any;
 
