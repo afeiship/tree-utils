@@ -1,23 +1,21 @@
-interface Tree {
+interface Options {
   value: string;
-  label: string;
-  leaf?: boolean;
-  children?: Tree[];
-  depth?: number;
-  [key: string]: any;
+  children: string;
 }
 
-export const findParent = (inTree: Tree, inKey: string, inParent?: Tree): Tree | null => {
-  if (inTree.value === inKey) return inParent || null;
+const defaults: Options = {
+  value: 'value',
+  children: 'children',
+};
 
-  if (inTree.children) {
-    for (const child of inTree.children) {
-      const parent = findParent(child, inKey, inTree);
-      if (parent) {
-        return parent;
-      }
-    }
+export const findParent = (inTree: any, inId: string, inOptions?: Options) => {
+  const options = { ...defaults, ...inOptions };
+  const tree = Array.isArray(inTree) ? { [options.children]: inTree } : inTree;
+  if (inTree[options.value] === inId) return null;
+  for (const child of inTree[options.children]) {
+    if (child[options.value] === inId) return inTree;
+    const parent = findParent(child, inId, options);
+    if (parent) return parent;
   }
-
   return null;
 };
