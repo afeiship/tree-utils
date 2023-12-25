@@ -16,13 +16,10 @@ export const findParents = (inTree: any, inId: any, inOptions?: Options): any[] 
   const { value, children } = options;
 
   const find = (tree: any, id: any) => {
-    const parent = findParent(inTree, inId, options);
-    console.log('parent: ', parent);
+    const parent = findParent(tree, id, options);
     if (!parent) return;
-    result.push(parent);
-
-    console.log('nested: ', parent, parent[value]);
-    find(parent, parent[value]);
+    result.unshift(parent);
+    find(tree, parent[value]);
   };
 
   find(inTree, inId);

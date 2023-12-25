@@ -1,7 +1,7 @@
 import { findParents } from '../../src/lib/find-parents';
 
 describe('api.basic', () => {
-  test.only('target is root', () => {
+  test('target is root', () => {
     const tree = {
       value: 'root',
       label: 'root',
@@ -16,12 +16,8 @@ describe('api.basic', () => {
         },
       ],
     };
-    // const res1 = findParents(tree, 'root');
-    // const res2 = findParents(tree, 'child1');
-    // console.log(res1);
-    // console.log(res2);
-    // expect(findParents(tree, 'root')).toEqual([]);
-    // expect(findParents(tree, 'child2')).toEqual([tree]);
+    expect(findParents(tree, 'root')).toEqual([]);
+    expect(findParents(tree, 'child2')).toEqual([tree]);
   });
 
   // nested
@@ -57,8 +53,15 @@ describe('api.basic', () => {
       ],
     };
 
-    expect(findParents(tree, 'grandchild1')).toEqual([tree.children[0]]);
-    expect(findParents(tree, 'grandchild2')).toEqual([tree.children[0]]);
-    expect(findParents(tree, 'grandgrandchild1')).toEqual([tree, tree.children[0]]);
+    const res1 = findParents(tree, 'grandchild1');
+    const res2 = findParents(tree, 'grandchild2');
+    expect(res1).toEqual([tree, tree.children[0]]);
+    expect(res2).toEqual([tree, tree.children[0]]);
+    // expect(findParents(tree, 'grandchild2')).toEqual([tree.children[0]]);
+    expect(findParents(tree, 'grandgrandchild1')).toEqual([
+      tree,
+      tree.children[0],
+      tree.children[0].children[0],
+    ]);
   });
 });
