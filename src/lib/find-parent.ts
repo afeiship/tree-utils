@@ -13,12 +13,11 @@ export const findParent = (inTree: any, inId: string, inOptions?: Options) => {
   const { value, children } = options;
   if (inTree[value] === inId) return null;
   const find = (tree: any, id: string) => {
-    if (tree[children]) {
-      for (const child of tree[children]) {
-        if (child[value] === id) return tree;
-        const res = find(child, id);
-        if (res) return res;
-      }
+    if (!tree[children]) return null;
+    for (const child of tree[children]) {
+      if (child[value] === id) return tree;
+      const res = find(child, id);
+      if (res) return res;
     }
     return null;
   };
