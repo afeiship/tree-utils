@@ -16,7 +16,10 @@ export const findItem = (inTree: any, inKey: string, inOptions?: Options) => {
 
   for (const item of tree) {
     if (item[options.value!] === inKey) return item;
-    if (item[options.children!]) return findItem(item[options.children!], inKey, options);
+    if (item[options.children!]) {
+      const res = findItem(item[options.children!], inKey, options);
+      if (res) return res;
+    }
   }
 
   return null;
