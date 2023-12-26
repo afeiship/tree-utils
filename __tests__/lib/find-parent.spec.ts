@@ -67,4 +67,30 @@ describe('api.basic', () => {
 
     expect(findParent(tree, 'grandchild1')).toBe(tree.children[0]);
   });
+
+  test('tree is an array', () => {
+    const tree = [
+      {
+        value: 'child1',
+        label: 'child1',
+      },
+      {
+        value: 'child2',
+        label: 'child2',
+        children: [
+          {
+            value: 'grandchild1',
+            label: 'grandchild1',
+          },
+          {
+            value: 'grandchild2',
+            label: 'grandchild2',
+          },
+        ],
+      },
+    ];
+
+    expect(findParent(tree, 'child1')).toBe(null);
+    expect(findParent(tree, 'grandchild1')).toBe(tree[1]);
+  });
 });
