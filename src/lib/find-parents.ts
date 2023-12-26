@@ -12,13 +12,13 @@ const defaults: Options = {
 export const findParents = (inTree: any, inId: any, inOptions?: Options): any[] => {
   const result: any[] = [];
   const options = { ...defaults, ...inOptions };
-  const { value, children } = options;
+  const { value } = options;
 
   const find = (tree: any, id: any) => {
     const parent = findParent(tree, id, options);
     if (!parent) return;
     result.unshift(parent);
-    find(tree, parent[value]);
+    find(tree, parent[value!]);
   };
 
   find(inTree, inId);

@@ -15,8 +15,8 @@ export const findItem = (inTree: any, inKey: string, inOptions?: Options) => {
   const tree = Array.isArray(inTree) ? inTree : [inTree];
 
   for (const item of tree) {
-    if (item[options.value] === inKey) return item;
-    if (item[options.children]) return findItem(item[options.children], inKey, options);
+    if (item[options.value!] === inKey) return item;
+    if (item[options.children!]) return findItem(item[options.children!], inKey, options);
   }
 
   return null;
