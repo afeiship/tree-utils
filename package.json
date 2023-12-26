@@ -1,6 +1,6 @@
 {
   "name": "@jswork/tree-utils",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Tree Utils is the library to convert and manipulate with tree-like structures.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
