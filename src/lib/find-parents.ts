@@ -1,10 +1,9 @@
 import { findParent } from './find-parent';
 
 interface Options {
-  value: string;
-  children: string;
+  value?: string;
+  children?: string;
 }
-
 const defaults: Options = {
   value: 'value',
   children: 'children',

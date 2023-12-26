@@ -11,9 +11,9 @@ interface TreeItem {
 }
 
 interface Options {
-  value: string;
-  label: string;
-  parent_key: string;
+  value?: string;
+  label?: string;
+  parent_key?: string;
 }
 
 const defaults = {

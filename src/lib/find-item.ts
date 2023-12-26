@@ -1,6 +1,6 @@
 interface Options {
-  value: string;
-  children: string;
+  value?: string;
+  children?: string;
 }
 
 const defaults: Options = {
