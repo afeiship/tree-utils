@@ -18,4 +18,4 @@ if (typeof module !== 'undefined' && module.exports && typeof wx === 'undefined'
   module.exports = TreeUtils;
 }
 
-export { buildTree, findItem, findParent, findParents };
+export { buildTree, findItem, findItems, findParent, findParents };
