@@ -24,3 +24,8 @@ export const findItem = (inTree: any, inKey: string, inOptions?: Options) => {
 
   return null;
 };
+
+export const findItems = (inTree: any, inKeys: string[], inOptions?: Options): any[] => {
+  const values = inKeys.map((key) => findItem(inTree, key, inOptions));
+  return values.filter((value) => value !== undefined);
+};
