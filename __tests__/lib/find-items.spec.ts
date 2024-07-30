@@ -1,7 +1,8 @@
-import { findItem } from '../../src/lib/find-item';
+import { findItems } from '../../src/lib/find-item';
 
+// bun test ./__tests__/lib/find-items.spec.ts
 describe('api.basic', () => {
-  test('target is root', () => {
+  test('find items value is array', () => {
     const tree = {
       value: 'root',
       label: 'root',
@@ -17,11 +18,11 @@ describe('api.basic', () => {
       ],
     };
 
-    const res1 = findItem(tree, 'root');
-    expect(res1).toBe(tree);
+    const res1 = findItems(tree, ['child1', 'child2']);
+    expect(res1).toEqual([tree.children[0], tree.children[1]]);
   });
 
-  test('target is grandchild', () => {
+  test('find items but only value is string', () => {
     const tree = {
       value: 'root',
       label: 'root',
@@ -29,16 +30,6 @@ describe('api.basic', () => {
         {
           value: 'child1',
           label: 'child1',
-          children: [
-            {
-              value: 'grandchild1',
-              label: 'grandchild1',
-            },
-            {
-              value: 'grandchild2',
-              label: 'grandchild2',
-            },
-          ],
         },
         {
           value: 'child2',
@@ -47,7 +38,7 @@ describe('api.basic', () => {
       ],
     };
 
-    const res1 = findItem(tree, 'grandchild1');
-    expect(res1).toBe(tree.children[0].children[0]);
+    const res2 = findItems(tree, 'child1');
+    expect(res2).toEqual([tree.children[0]]);
   });
 });
