@@ -28,5 +28,5 @@ export const findItem = (inTree: any, inKey: string, inOptions?: Options) => {
 export const findItems = (inTree: any, inKeys: string[] | string, inOptions?: Options): any[] => {
   const keys = Array.isArray(inKeys) ? inKeys : [inKeys];
   const values = keys.map((key) => findItem(inTree, key, inOptions));
-  return values.filter((value) => value !== undefined);
+  return values.filter((value) => value != undefined);
 };

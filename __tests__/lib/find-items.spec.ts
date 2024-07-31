@@ -41,4 +41,24 @@ describe('api.basic', () => {
     const res2 = findItems(tree, 'child1');
     expect(res2).toEqual([tree.children[0]]);
   });
+
+  test('find items when null value should filter', ()=>{
+    const tree = {
+      value: 'root',
+      label: 'root',
+      children: [
+        {
+          value: 'child1',
+          label: 'child1',
+        },
+        {
+          value: 'child2',
+          label: 'child2',
+        },
+      ],
+    };
+
+    const res2 = findItems(tree, 'not-exists-value');
+    expect(res2).toEqual([]);
+  })
 });
