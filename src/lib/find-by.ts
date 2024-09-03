@@ -3,12 +3,14 @@ interface Options {
   children?: string;
 }
 
+type FindCallback = (item: any, index: number, array: any[]) => boolean;
+
 const defaults: Options = {
   value: 'value',
   children: 'children',
 };
 
-const findBy = (inTree: any, inCallback: (item: any) => boolean, inOptions?: Options) => {
+const findBy = (inTree: any, inCallback: FindCallback, inOptions?: Options) => {
   const result: any[] = [];
   const options = { ...defaults, ...inOptions };
   if (!inTree) return null;
@@ -16,12 +18,12 @@ const findBy = (inTree: any, inCallback: (item: any) => boolean, inOptions?: Opt
   const tree = Array.isArray(inTree) ? inTree : [inTree];
 
   for (const item of tree) {
-    if (inCallback(item)) {
+    if (inCallback(item, tree.indexOf(item), tree)) {
       result.push(item);
     }
 
     if (item[options.children!]) {
-      const children = find(item[options.children!], inCallback, options) as any[];
+      const children = findBy(item[options.children!], inCallback, options) as any[];
       if (children.length) {
         result.push(...children);
       }
